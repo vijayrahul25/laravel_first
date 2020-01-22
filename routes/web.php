@@ -11,14 +11,17 @@
 |
 */
 
+use Carbon\Carbon;
 
 Route::get('/send-mail', function () {
 
-    $mailData = [        
-        'from' => 'itest@itest.com',
-        'from_name' => 'Name-Tester',
+    $mailData = [
+    	'to'   => 'recipient@test.com', 
+    	'to_username'   => 'Username Recipient',
+        'from' => 'sender@test.com',
+        'from_name' => 'Name-Sender',
         'template_view' => 'mails.test',
-        'subject' => 'Sending test email',
+        'subject' => 'Sending test email_' . Carbon::now(),
         'body' => 'This is my test email, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...',
     ];
 

@@ -21,15 +21,8 @@ class TestMailService {
        Mail::to($this->mailData['to'])    
     ->send(new TestMail($this->mailData));
        
-     $mailTextToStoreInDb = view($this->mailData['template_view'], ['mailData' => $this->mailData])->render();
-
        if(Mail::failures()) {
 
-         echo "Some Error !!";
-
-       } else {
-            echo 'Email Sent. Check your inbox.';           
-            echo $mailTextToStoreInDb;
        }
     }
 
